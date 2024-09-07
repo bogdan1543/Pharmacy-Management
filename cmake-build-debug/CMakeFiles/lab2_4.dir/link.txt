@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/lab2_4.dir/main.c.o CMakeFiles/lab2_4.dir/medicine.c.o CMakeFiles/lab2_4.dir/repository_medicine.c.o CMakeFiles/lab2_4.dir/service_medicine.c.o -o lab2_4 

@@ -1,0 +1,209 @@
+        -:    0:Source:/mnt/c/TEME C C++/OOP/lab2-4/medicine.c
+        -:    0:Graph:/mnt/c/TEME C C++/OOP/lab2-4/cmake-build-debug-coverage/CMakeFiles/lab2_4.dir/medicine.c.gcno
+        -:    0:Data:/mnt/c/TEME C C++/OOP/lab2-4/cmake-build-debug-coverage/CMakeFiles/lab2_4.dir/medicine.c.gcda
+        -:    0:Runs:1
+        -:    1:#include "medicine.h"
+        -:    2:
+        -:    3:#include <string.h>
+        -:    4:#include <assert.h>
+        -:    5:#include <stdlib.h>
+        -:    6:#include <stdio.h>
+        -:    7:
+        -:    8:/// Create a medicine object
+        -:    9:/// \param code - int
+        -:   10:/// \param name - char
+        -:   11:/// \param concentration - float
+        -:   12:/// \param stock - int
+        -:   13:/// \return Medicine
+function createMedicine called 30 returned 100% blocks executed 100%
+       30:   14:Medicine createMedicine(int code, char *name, float concentration, int stock) {
+        -:   15:    Medicine m;
+       30:   16:    size_t nrC = strlen(name) + 1;
+       30:   17:    m.name = malloc(nrC * sizeof(char));
+       30:   18:    m.code = code;
+       30:   19:    strcpy(m.name, name);
+       30:   20:    m.concentration = concentration;
+       30:   21:    m.stock = stock;
+        -:   22:
+       30:   23:    return m;
+       30:   23-block  0
+        -:   24:}
+        -:   25:
+        -:   26:/// Deallocate memory from medicine
+        -:   27:/// \param m - Medicine
+function destroyMedicine called 30 returned 100% blocks executed 100%
+       30:   28:void destroyMedicine(Medicine *m) {
+       30:   29:    free(m->name);
+       30:   30:    m->code = -1;
+       30:   31:    m->stock = -1;
+       30:   32:    m->concentration = -1;
+       30:   33:}
+        -:   34:
+        -:   35:/// Validate medicine
+        -:   36:/// \param m - Medicine
+        -:   37:/// \return 1 if valid or 0 if invalid
+function validate called 17 returned 100% blocks executed 100%
+       17:   38:int validate(Medicine m) {
+       17:   39:    if (m.code < 1)
+       17:   39-block  0
+branch  0 taken 3 (fallthrough)
+branch  1 taken 14
+        3:   40:        return 0;
+        3:   40-block  0
+       14:   41:    if (strlen(m.name) == 0)
+       14:   41-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 13
+        1:   42:        return 0;
+        1:   42-block  0
+       13:   43:    if (m.concentration <= 0)
+       13:   43-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 12
+        1:   44:        return 0;
+        1:   44-block  0
+       12:   45:    if (m.stock < 0)
+       12:   45-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 11
+        1:   46:        return 0;
+        1:   46-block  0
+       11:   47:    return 1;
+       11:   47-block  0
+        -:   48:}
+        -:   49:
+        -:   50:/// Validate medicine code
+        -:   51:/// \param code - int
+        -:   52:/// \return 1 if valid or 0 if invalid
+function validate_code called 4 returned 100% blocks executed 100%
+        4:   53:int validate_code(int code) {
+        4:   54:    if (code < 1)
+        4:   54-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 2
+        2:   55:        return 0;
+        2:   55-block  0
+        2:   56:    return 1;
+        2:   56-block  0
+        -:   57:}
+        -:   58:
+        -:   59:
+        -:   60:// tests
+function testCreateDestroy called 1 returned 100% blocks executed 64%
+        1:   61:void testCreateDestroy() {
+        1:   62:    Medicine m = createMedicine(1, "paracetamol", 500, 20);
+        1:   62-block  0
+call    0 returned 1
+       1*:   63:    assert(m.code == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   63-block  0
+call    2 never executed
+       1*:   64:    assert(strcmp(m.name, "paracetamol") == 0);
+        1:   64-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   64-block  1
+call    2 never executed
+       1*:   65:    assert(m.concentration == 500.0);
+        1:   65-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   65-block  1
+call    2 never executed
+       1*:   66:    assert(m.stock == 20);
+        1:   66-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   66-block  1
+call    2 never executed
+        -:   67:
+        1:   68:    destroyMedicine(&m);
+        1:   68-block  0
+call    0 returned 1
+        1:   69:}
+        -:   70:
+function testValidate called 1 returned 100% blocks executed 81%
+        1:   71:void testValidate() {
+        1:   72:    Medicine m = createMedicine(1, "paracetamol", 500, 20);
+        1:   72-block  0
+call    0 returned 1
+       1*:   73:    assert(validate(m) == 1);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   73-block  0
+call    3 never executed
+        1:   74:    destroyMedicine(&m);
+        1:   74-block  0
+call    0 returned 1
+        1:   75:    m = createMedicine(-1, "", 0, -2);
+call    0 returned 1
+       1*:   76:    assert(validate(m) == 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   76-block  0
+call    3 never executed
+        1:   77:    destroyMedicine(&m);
+        1:   77-block  0
+call    0 returned 1
+        1:   78:    m = createMedicine(1, "", 0, -2);
+call    0 returned 1
+       1*:   79:    assert(validate(m) == 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   79-block  0
+call    3 never executed
+        1:   80:    destroyMedicine(&m);
+        1:   80-block  0
+call    0 returned 1
+        1:   81:    m = createMedicine(1, "abc", 0, -2);
+call    0 returned 1
+       1*:   82:    assert(validate(m) == 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   82-block  0
+call    3 never executed
+        1:   83:    destroyMedicine(&m);
+        1:   83-block  0
+call    0 returned 1
+        1:   84:    m = createMedicine(1, "abc", 3, -2);
+call    0 returned 1
+       1*:   85:    assert(validate(m) == 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   85-block  0
+call    3 never executed
+        1:   86:    destroyMedicine(&m);
+        1:   86-block  0
+call    0 returned 1
+        -:   87:
+        1:   88:}
+        -:   89:
+function testValidate_code called 1 returned 100% blocks executed 78%
+        1:   90:void testValidate_code() {
+        1:   91:    Medicine m = createMedicine(-1, "", 0, -2);
+        1:   91-block  0
+call    0 returned 1
+       1*:   92:    assert(validate_code(m.code) == 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   92-block  0
+call    3 never executed
+        1:   93:    m.code = 3;
+       1*:   94:    assert(validate_code(m.code) == 1);
+        1:   94-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   94-block  1
+call    3 never executed
+        1:   95:    destroyMedicine(&m);
+        1:   95-block  0
+call    0 returned 1
+        1:   96:}

@@ -1,0 +1,328 @@
+        -:    0:Source:/mnt/c/TEME C C++/OOP/lab2-4/main.c
+        -:    0:Graph:/mnt/c/TEME C C++/OOP/lab2-4/cmake-build-debug-coverage/CMakeFiles/lab2_4.dir/main.c.gcno
+        -:    0:Data:/mnt/c/TEME C C++/OOP/lab2-4/cmake-build-debug-coverage/CMakeFiles/lab2_4.dir/main.c.gcda
+        -:    0:Runs:1
+        -:    1:#include "medicine.h"
+        -:    2:#include "repository_medicine.h"
+        -:    3:#include "service_medicine.h"
+        -:    4:
+        -:    5:#include <stdio.h>
+        -:    6:#include <stdlib.h>
+        -:    7:
+        -:    8:
+        -:    9:/// Add a medicine to the list
+        -:   10:/// \param lst - MedicineList
+function uiAddMedicine called 0 returned 0% blocks executed 0%
+    #####:   11:void uiAddMedicine(MedicineList *lst) {
+    #####:   12:    printf("Code:");
+    %%%%%:   12-block  0
+call    0 never executed
+        -:   13:    int code;
+    #####:   14:    scanf("%d", &code);
+call    0 never executed
+    #####:   15:    printf("Name:");
+call    0 never executed
+        -:   16:    char name[30];
+    #####:   17:    scanf("%s", name);
+call    0 never executed
+    #####:   18:    printf("Concentration:");
+call    0 never executed
+        -:   19:    float concentration;
+    #####:   20:    scanf("%f", &concentration);
+call    0 never executed
+    #####:   21:    printf("Stock:");
+call    0 never executed
+        -:   22:    int stock;
+    #####:   23:    scanf("%d", &stock);
+call    0 never executed
+    #####:   24:    int error = addMedicine(lst, code, name, concentration, stock);
+call    0 never executed
+    #####:   25:    if (error != 0) {
+branch  0 never executed
+branch  1 never executed
+    #####:   26:        printf("Invalid medicine.\n");
+    %%%%%:   26-block  0
+call    0 never executed
+        -:   27:    }
+    #####:   28:}
+        -:   29:
+        -:   30:/// Modify a medicine name and concentration
+        -:   31:/// \param lst - MedicineList
+function uiModifyMedicine called 0 returned 0% blocks executed 0%
+    #####:   32:void uiModifyMedicine(MedicineList *lst) {
+    #####:   33:    printf("Code:");
+    %%%%%:   33-block  0
+call    0 never executed
+        -:   34:    int code;
+    #####:   35:    scanf("%d", &code);
+call    0 never executed
+    #####:   36:    printf("Name:");
+call    0 never executed
+        -:   37:    char name[20];
+    #####:   38:    scanf("%s", name);
+call    0 never executed
+    #####:   39:    printf("Concentration:");
+call    0 never executed
+        -:   40:    float concentration;
+    #####:   41:    scanf("%f", &concentration);
+call    0 never executed
+    #####:   42:    int error = modifyMedicine(lst, code, name, concentration);
+call    0 never executed
+    #####:   43:    if (error != 0) {
+branch  0 never executed
+branch  1 never executed
+    #####:   44:        printf("Invalid medicine.\n");
+    %%%%%:   44-block  0
+call    0 never executed
+        -:   45:    }
+    #####:   46:}
+        -:   47:
+        -:   48:/// Delete a medicine stock
+        -:   49:/// \param lst - MedicineList
+function uiDeleteStockMedicine called 0 returned 0% blocks executed 0%
+    #####:   50:void uiDeleteStockMedicine(MedicineList *lst) {
+    #####:   51:    printf("Code:");
+    %%%%%:   51-block  0
+call    0 never executed
+        -:   52:    int code;
+    #####:   53:    scanf("%d", &code);
+call    0 never executed
+    #####:   54:    int error = deleteStockMedicine(lst, code);
+call    0 never executed
+    #####:   55:    if (error != 0) {
+branch  0 never executed
+branch  1 never executed
+    #####:   56:        printf("Invalid medicine.\n");
+    %%%%%:   56-block  0
+call    0 never executed
+        -:   57:    }
+    #####:   58:}
+        -:   59:
+        -:   60:/// Print all the medicine
+        -:   61:/// \param lst - MedicineList
+function uiPrintAllMedicine called 0 returned 0% blocks executed 0%
+    #####:   62:void uiPrintAllMedicine(MedicineList *lst) {
+    #####:   63:    for (int i = 0; i < size(lst); i++) {
+    %%%%%:   63-block  0
+    %%%%%:   63-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   64:        ElemType m = get(lst, i);
+    %%%%%:   64-block  0
+call    0 never executed
+    #####:   65:        printf("(%d , %s , %f , %d)\n", m.code, m.name, m.concentration, m.stock);
+call    0 never executed
+        -:   66:    }
+    #####:   67:}
+        -:   68:
+        -:   69:/// Print all the medicine ordered ascending or descending
+        -:   70:/// \param lst - MedicineList
+function uiPrintAllMedicineOrdered called 0 returned 0% blocks executed 0%
+    #####:   71:void uiPrintAllMedicineOrdered(MedicineList *lst) {
+    #####:   72:    printf("0 - Ascending\n1 - Descending\nCommand:");
+    %%%%%:   72-block  0
+call    0 never executed
+        -:   73:    int sortType;
+    #####:   74:    scanf("%d", &sortType);
+call    0 never executed
+    #####:   75:    MedicineList copy_list = getAllMedicineOrdered(lst, sortType);
+call    0 never executed
+    #####:   76:    for (int i = 0; i < size(&copy_list); i++) {
+    %%%%%:   76-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   77:        ElemType m = get(&copy_list, i);
+    %%%%%:   77-block  0
+call    0 never executed
+    #####:   78:        printf("(%d , %s , %f , %d)\n", m.code, m.name, m.concentration, m.stock);
+call    0 never executed
+        -:   79:    }
+    #####:   80:    destroy_copy(&copy_list);
+    %%%%%:   80-block  0
+call    0 never executed
+    #####:   81:}
+        -:   82:
+        -:   83:/// Print all the medicine that have the stock higher
+        -:   84:/// \param lst - MedicineList
+function uiPrintAllMedicineFilteredByStock called 0 returned 0% blocks executed 0%
+    #####:   85:void uiPrintAllMedicineFilteredByStock(MedicineList *lst) {
+    #####:   86:    printf("Stocks greater than:");
+    %%%%%:   86-block  0
+call    0 never executed
+        -:   87:    int stockF;
+    #####:   88:    scanf("%d", &stockF);
+call    0 never executed
+    #####:   89:    MedicineList lstOrd = getAllMedicineFilteredByStock(lst, stockF);
+call    0 never executed
+    #####:   90:    for (int i = 0; i < size(&lstOrd); i++) {
+    %%%%%:   90-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   91:        ElemType m = get(&lstOrd, i);
+    %%%%%:   91-block  0
+call    0 never executed
+    #####:   92:        printf("(%d , %s , %f , %d)\n", m.code, m.name, m.concentration, m.stock);
+call    0 never executed
+        -:   93:    }
+    #####:   94:    destroy_copy(&lstOrd);
+    %%%%%:   94-block  0
+call    0 never executed
+    #####:   95:}
+        -:   96:
+        -:   97:/// Print all the medicine that starts with a certain letter
+        -:   98:/// \param lst - MedicineList
+function uiPrintAllMedicineFilteredByName called 0 returned 0% blocks executed 0%
+    #####:   99:void uiPrintAllMedicineFilteredByName(MedicineList *lst) {
+    #####:  100:    printf("Medicine that starts with:");
+    %%%%%:  100-block  0
+call    0 never executed
+        -:  101:    char nameF[1];
+    #####:  102:    scanf("%s", nameF);
+call    0 never executed
+    #####:  103:    MedicineList lstOrd = getAllMedicineFilteredByName(lst, nameF);
+call    0 never executed
+    #####:  104:    for (int i = 0; i < size(&lstOrd); i++) {
+    %%%%%:  104-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  105:        ElemType m = get(&lstOrd, i);
+    %%%%%:  105-block  0
+call    0 never executed
+    #####:  106:        printf("(%d , %s , %f , %d)\n", m.code, m.name, m.concentration, m.stock);
+call    0 never executed
+        -:  107:    }
+    #####:  108:    destroy_copy(&lstOrd);
+    %%%%%:  108-block  0
+call    0 never executed
+    #####:  109:}
+        -:  110:
+        -:  111:
+        -:  112:/// Console run
+function run called 0 returned 0% blocks executed 0%
+    #####:  113:void run() {
+    #####:  114:    MedicineList lst = createEmpty();
+    %%%%%:  114-block  0
+call    0 never executed
+    #####:  115:    int running = 1;
+    #####:  116:    while (running) {
+    %%%%%:  116-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  117:        printf("1 Add\n"
+    %%%%%:  117-block  0
+call    0 never executed
+        -:  118:               "2 Modify\n"
+        -:  119:               "3 Delete stock\n"
+        -:  120:               "4 Print medicine\n"
+        -:  121:               "5 Ordered\n"
+        -:  122:               "6 Filtered - greater stocks\n"
+        -:  123:               "7 Filtered - starts with letter\n"
+        -:  124:               "0 Exit\n"
+        -:  125:               "Command:");
+    #####:  126:        int cmd = 0;
+    #####:  127:        scanf("%d", &cmd);
+call    0 never executed
+    #####:  128:        switch (cmd) {
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+branch  4 never executed
+branch  5 never executed
+branch  6 never executed
+branch  7 never executed
+branch  8 never executed
+    #####:  129:            case 1:
+    #####:  130:                uiAddMedicine(&lst);
+    %%%%%:  130-block  0
+call    0 never executed
+    #####:  131:                break;
+    #####:  132:            case 2:
+    #####:  133:                uiModifyMedicine(&lst);
+    %%%%%:  133-block  0
+call    0 never executed
+    #####:  134:                break;
+    #####:  135:            case 3:
+    #####:  136:                uiDeleteStockMedicine(&lst);
+    %%%%%:  136-block  0
+call    0 never executed
+    #####:  137:                break;
+    #####:  138:            case 4:
+    #####:  139:                uiPrintAllMedicine(&lst);
+    %%%%%:  139-block  0
+call    0 never executed
+    #####:  140:                break;
+    #####:  141:            case 5:
+    #####:  142:                uiPrintAllMedicineOrdered(&lst);
+    %%%%%:  142-block  0
+call    0 never executed
+    #####:  143:                break;
+    #####:  144:            case 6:
+    #####:  145:                uiPrintAllMedicineFilteredByStock(&lst);
+    %%%%%:  145-block  0
+call    0 never executed
+    #####:  146:                break;
+    #####:  147:            case 7:
+    #####:  148:                uiPrintAllMedicineFilteredByName(&lst);
+    %%%%%:  148-block  0
+call    0 never executed
+    #####:  149:                break;
+    #####:  150:            case 0:
+    #####:  151:                running = 0;
+    #####:  152:                break;
+    %%%%%:  152-block  0
+    #####:  153:            default:
+    #####:  154:                printf("Invalid command!!!\n");
+    %%%%%:  154-block  0
+call    0 never executed
+        -:  155:        }
+        -:  156:    }
+    #####:  157:    destroy(&lst);
+    %%%%%:  157-block  0
+call    0 never executed
+    #####:  158:}
+        -:  159:
+        -:  160://tests
+function testAll called 1 returned 100% blocks executed 100%
+        1:  161:void testAll() {
+        1:  162:    testCreateDestroy();
+        1:  162-block  0
+call    0 returned 1
+        1:  163:    testCreateList();
+call    0 returned 1
+        1:  164:    testAdd();
+call    0 returned 1
+        1:  165:    testModify();
+call    0 returned 1
+        1:  166:    testAddMedicine();
+call    0 returned 1
+        1:  167:    testModifyMedicine();
+call    0 returned 1
+        1:  168:    testDeleteStock();
+call    0 returned 1
+        1:  169:    testDeleteStockMedicine();
+call    0 returned 1
+        1:  170:    testValidate();
+call    0 returned 1
+        1:  171:    testValidate_code();
+call    0 returned 1
+        1:  172:    testUtilsRepo();
+call    0 returned 1
+        1:  173:    testGetAllMedicineOrdered();
+call    0 returned 1
+        1:  174:    testGetAllMedicineFiltered();
+call    0 returned 1
+        1:  175:}
+        -:  176:
+function main called 1 returned 100% blocks executed 100%
+        1:  177:int main() {
+        1:  178:    testAll();
+        1:  178-block  0
+call    0 returned 1
+        -:  179:    //run();
+        1:  180:    return 0;
+        -:  181:}
